@@ -93,8 +93,8 @@ typedef unsigned long sigset_t;
 #ifndef __ASSEMBLY__
 
 
-#ifdef __i386__
 /* Here we must cater to libcs that poke about in kernel headers.  */
+#ifdef __i386__
 
 struct sigaction {
 	union {

@@ -219,4 +219,7 @@
 /* ARC (Synopsys) on-chip UART */
 #define PORT_ARC       101
 
+/* Rocketport EXPRESS/INFINITY */
+#define PORT_RP2	102
+
 #endif /* LINUX_SERIAL_CORE_H */

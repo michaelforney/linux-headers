@@ -271,6 +271,7 @@ enum ovs_key_attr {
 	OVS_KEY_ATTR_SKB_MARK,  /* u32 skb mark */
 	OVS_KEY_ATTR_TUNNEL,    /* Nested set of ovs_tunnel attributes */
 	OVS_KEY_ATTR_SCTP,      /* struct ovs_key_sctp */
+	OVS_KEY_ATTR_TCP_FLAGS,	/* be16 TCP flags. */
 
 	__OVS_KEY_ATTR_MAX
 };

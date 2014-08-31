@@ -33,7 +33,6 @@
 #ifndef _VIA_DEFINES_
 #define _VIA_DEFINES_
 
-#include "via_drmclient.h"
 
 #define VIA_NR_SAREA_CLIPRECTS		8
 #define VIA_NR_XVMC_PORTS               10

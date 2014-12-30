@@ -1,6 +1,8 @@
-#ifndef _LINUX_VIRTIO_BALLOON_H
-#define _LINUX_VIRTIO_BALLOON_H
-/* This header is BSD licensed so anyone can use the definitions to implement
+#ifndef _LINUX_VIRTIO_TYPES_H
+#define _LINUX_VIRTIO_TYPES_H
+/* Type definitions for virtio implementations.
+ *
+ * This header is BSD licensed so anyone can use the definitions to implement
  * compatible drivers/servers.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -24,37 +26,21 @@
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
- * SUCH DAMAGE. */
-#include <linux/virtio_ids.h>
-#include <linux/virtio_config.h>
+ * SUCH DAMAGE.
+ *
+ * Copyright (C) 2014 Red Hat, Inc.
+ * Author: Michael S. Tsirkin <mst@redhat.com>
+ */
+#include <linux/types.h>
 
-/* The feature bitmap for virtio balloon */
-#define VIRTIO_BALLOON_F_MUST_TELL_HOST	0 /* Tell before reclaiming pages */
-#define VIRTIO_BALLOON_F_STATS_VQ	1 /* Memory Stats virtqueue */
-#define VIRTIO_BALLOON_F_DEFLATE_ON_OOM	2 /* Deflate balloon on OOM */
+/*
+ * __virtio{16,32,64} have the following meaning:
+ * - __u{16,32,64} for virtio devices in legacy mode, accessed in native endian
+ * - __le{16,32,64} for standard-compliant virtio devices
+ */
 
-/* Size of a PFN in the balloon interface. */
-#define VIRTIO_BALLOON_PFN_SHIFT 12
+typedef __u16 __bitwise__ __virtio16;
+typedef __u32 __bitwise__ __virtio32;
+typedef __u64 __bitwise__ __virtio64;
 
-struct virtio_balloon_config
-{
-	/* Number of pages host wants Guest to give up. */
-	__le32 num_pages;
-	/* Number of pages we've actually got in balloon. */
-	__le32 actual;
-};
-
-#define VIRTIO_BALLOON_S_SWAP_IN  0   /* Amount of memory swapped in */
-#define VIRTIO_BALLOON_S_SWAP_OUT 1   /* Amount of memory swapped out */
-#define VIRTIO_BALLOON_S_MAJFLT   2   /* Number of major faults */
-#define VIRTIO_BALLOON_S_MINFLT   3   /* Number of minor faults */
-#define VIRTIO_BALLOON_S_MEMFREE  4   /* Total amount of free memory */
-#define VIRTIO_BALLOON_S_MEMTOT   5   /* Total amount of memory */
-#define VIRTIO_BALLOON_S_NR       6
-
-struct virtio_balloon_stat {
-	__u16 tag;
-	__u64 val;
-} __attribute__((packed));
-
-#endif /* _LINUX_VIRTIO_BALLOON_H */
+#endif /* _LINUX_VIRTIO_TYPES_H */

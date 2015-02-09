@@ -270,6 +270,11 @@ static __inline__ int TLV_CHECK(const void *tlv, __u16 space, __u16 exp_type)
 		(ntohs(((struct tlv_desc *)tlv)->tlv_type) == exp_type);
 }
 
+static __inline__ int TLV_GET_LEN(struct tlv_desc *tlv)
+{
+	return ntohs(tlv->tlv_len);
+}
+
 static __inline__ int TLV_SET(void *tlv, __u16 type, void *data, __u16 len)
 {
 	struct tlv_desc *tlv_ptr;

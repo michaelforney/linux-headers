@@ -388,6 +388,17 @@ struct ifla_vxlan_port_range {
 	__be16	high;
 };
 
+/* GENEVE section */
+enum {
+	IFLA_GENEVE_UNSPEC,
+	IFLA_GENEVE_ID,
+	IFLA_GENEVE_REMOTE,
+	IFLA_GENEVE_TTL,
+	IFLA_GENEVE_TOS,
+	__IFLA_GENEVE_MAX
+};
+#define IFLA_GENEVE_MAX	(__IFLA_GENEVE_MAX - 1)
+
 /* Bonding section */
 
 enum {
@@ -415,6 +426,9 @@ enum {
 	IFLA_BOND_AD_LACP_RATE,
 	IFLA_BOND_AD_SELECT,
 	IFLA_BOND_AD_INFO,
+	IFLA_BOND_AD_ACTOR_SYS_PRIO,
+	IFLA_BOND_AD_USER_PORT_KEY,
+	IFLA_BOND_AD_ACTOR_SYSTEM,
 	__IFLA_BOND_MAX,
 };
 

@@ -18,6 +18,10 @@
 #include <linux/types.h>
 #include <sound/asound.h>
 
+#error This API is an early revision and not enabled in the current
+#error kernel release, it will be enabled in a future kernel version
+#error with incompatible changes to what is here.
+
 /*
  * Maximum number of channels topology kcontrol can represent.
  */

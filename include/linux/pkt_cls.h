@@ -319,6 +319,8 @@ enum {
 
 /* BPF classifier */
 
+#define TCA_BPF_FLAG_ACT_DIRECT		(1 << 0)
+
 enum {
 	TCA_BPF_UNSPEC,
 	TCA_BPF_ACT,
@@ -328,6 +330,7 @@ enum {
 	TCA_BPF_OPS,
 	TCA_BPF_FD,
 	TCA_BPF_NAME,
+	TCA_BPF_FLAGS,
 	__TCA_BPF_MAX,
 };
 

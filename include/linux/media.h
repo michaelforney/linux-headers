@@ -371,11 +371,6 @@ struct media_v2_topology {
 	__u64 ptr_links;
 };
 
-static __inline__ void *media_get_uptr(__u64 arg)
-{
-	return (void *)(uintptr_t)arg;
-}
-
 /* ioctls */
 
 #define MEDIA_IOC_DEVICE_INFO		_IOWR('|', 0x00, struct media_device_info)

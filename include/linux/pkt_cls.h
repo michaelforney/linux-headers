@@ -61,8 +61,8 @@ struct tc_police {
 	__u32			mtu;
 	struct tc_ratespec	rate;
 	struct tc_ratespec	peakrate;
-	int 			refcnt;
-	int 			bindcnt;
+	int			refcnt;
+	int			bindcnt;
 	__u32			capab;
 };
 
@@ -74,7 +74,7 @@ struct tcf_t {
 };
 
 struct tc_cnt {
-	int                   refcnt; 
+	int                   refcnt;
 	int                   bindcnt;
 };
 

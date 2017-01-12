@@ -31,5 +31,6 @@
 #define HWCAP_FPHP		(1 << 9)
 #define HWCAP_ASIMDHP		(1 << 10)
 #define HWCAP_CPUID		(1 << 11)
+#define HWCAP_ASIMDRDM		(1 << 12)
 
 #endif /* __ASM_HWCAP_H */

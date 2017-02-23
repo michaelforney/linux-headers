@@ -14,6 +14,8 @@
 #ifndef _LINUX_SEG6_IPTUNNEL_H
 #define _LINUX_SEG6_IPTUNNEL_H
 
+#include <linux/seg6.h>		/* For struct ipv6_sr_hdr. */
+
 enum {
 	SEG6_IPTUNNEL_UNSPEC,
 	SEG6_IPTUNNEL_SRH,

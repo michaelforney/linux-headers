@@ -92,4 +92,6 @@
 
 #define SCM_TIMESTAMPING_OPT_STATS	54
 
+#define SO_MEMINFO		55
+
 #endif /* __ASM_AVR32_SOCKET_H */

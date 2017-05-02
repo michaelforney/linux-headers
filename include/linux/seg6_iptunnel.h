@@ -14,6 +14,8 @@
 #ifndef _LINUX_SEG6_IPTUNNEL_H
 #define _LINUX_SEG6_IPTUNNEL_H
 
+#include <linux/seg6.h>		/* For struct ipv6_sr_hdr. */
+
 enum {
 	SEG6_IPTUNNEL_UNSPEC,
 	SEG6_IPTUNNEL_SRH,
@@ -33,12 +35,5 @@ enum {
 	SEG6_IPTUN_MODE_ENCAP,
 };
 
-static __inline__ size_t seg6_lwt_headroom(struct seg6_iptunnel_encap *tuninfo)
-{
-	int encap = (tuninfo->mode == SEG6_IPTUN_MODE_ENCAP);
-
-	return ((tuninfo->srh->hdrlen + 1) << 3) +
-	       (encap * sizeof(struct ipv6hdr));
-}
 
 #endif

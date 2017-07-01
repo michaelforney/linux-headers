@@ -783,4 +783,6 @@ enum {
 					 */
 };
 
+#define TCP_BPF_IW		1001	/* Set TCP initial congestion window */
+
 #endif /* __LINUX_BPF_H__ */

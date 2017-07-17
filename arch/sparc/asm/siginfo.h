@@ -17,6 +17,10 @@
 #define SI_NOINFO	32767		/* no information in siginfo_t */
 
 /*
+ * SIGFPE si_codes
+ */
+
+/*
  * SIGEMT si_codes
  */
 #define EMT_TAGOVF	(__SI_FAULT|1)	/* tag overflow */

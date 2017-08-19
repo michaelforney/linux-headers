@@ -18,4 +18,13 @@
 #undef NSIGTRAP
 #define NSIGTRAP	4
 
+/*
+ * SIGFPE si_codes
+ */
+
+/*
+ * SIGTRAP si_codes
+ */
+
+
 #endif	/* _ASM_POWERPC_SIGINFO_H */

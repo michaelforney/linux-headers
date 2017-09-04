@@ -1,5 +1,5 @@
-/* QLogic qedr NIC Driver
- * Copyright (c) 2015-2016  QLogic Corporation
+/*
+ * Copyright (c) 2017, Mellanox Technologies inc.  All rights reserved.
  *
  * This software is available to you under a choice of one of two
  * licenses.  You may choose to be licensed under the terms of the GNU
@@ -17,7 +17,7 @@
  *
  *      - Redistributions in binary form must reproduce the above
  *        copyright notice, this list of conditions and the following
- *        disclaimer in the documentation and /or other materials
+ *        disclaimer in the documentation and/or other materials
  *        provided with the distribution.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
@@ -29,81 +29,56 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#ifndef __QEDR_USER_H__
-#define __QEDR_USER_H__
 
-#include <linux/types.h>
+#ifndef IB_USER_IOCTL_VERBS_H
+#define IB_USER_IOCTL_VERBS_H
 
-#define QEDR_ABI_VERSION		(8)
+#include <rdma/rdma_user_ioctl.h>
 
-/* user kernel communication data structures. */
+#define UVERBS_UDATA_DRIVER_DATA_NS	1
+#define UVERBS_UDATA_DRIVER_DATA_FLAG	(1UL << UVERBS_ID_NS_SHIFT)
 
-struct qedr_alloc_ucontext_resp {
-	__u64 db_pa;
-	__u32 db_size;
-
-	__u32 max_send_wr;
-	__u32 max_recv_wr;
-	__u32 max_srq_wr;
-	__u32 sges_per_send_wr;
-	__u32 sges_per_recv_wr;
-	__u32 sges_per_srq_wr;
-	__u32 max_cqes;
-	__u8 dpm_enabled;
-	__u8 wids_enabled;
-	__u16 wid_count;
+enum uverbs_default_objects {
+	UVERBS_OBJECT_DEVICE, /* No instances of DEVICE are allowed */
+	UVERBS_OBJECT_PD,
+	UVERBS_OBJECT_COMP_CHANNEL,
+	UVERBS_OBJECT_CQ,
+	UVERBS_OBJECT_QP,
+	UVERBS_OBJECT_SRQ,
+	UVERBS_OBJECT_AH,
+	UVERBS_OBJECT_MR,
+	UVERBS_OBJECT_MW,
+	UVERBS_OBJECT_FLOW,
+	UVERBS_OBJECT_XRCD,
+	UVERBS_OBJECT_RWQ_IND_TBL,
+	UVERBS_OBJECT_WQ,
+	UVERBS_OBJECT_LAST,
 };
 
-struct qedr_alloc_pd_ureq {
-	__u64 rsvd1;
+enum {
+	UVERBS_UHW_IN = UVERBS_UDATA_DRIVER_DATA_FLAG,
+	UVERBS_UHW_OUT,
 };
 
-struct qedr_alloc_pd_uresp {
-	__u32 pd_id;
+enum uverbs_create_cq_cmd_attr_ids {
+	CREATE_CQ_HANDLE,
+	CREATE_CQ_CQE,
+	CREATE_CQ_USER_HANDLE,
+	CREATE_CQ_COMP_CHANNEL,
+	CREATE_CQ_COMP_VECTOR,
+	CREATE_CQ_FLAGS,
+	CREATE_CQ_RESP_CQE,
 };
 
-struct qedr_create_cq_ureq {
-	__u64 addr;
-	__u64 len;
+enum uverbs_destroy_cq_cmd_attr_ids {
+	DESTROY_CQ_HANDLE,
+	DESTROY_CQ_RESP,
 };
 
-struct qedr_create_cq_uresp {
-	__u32 db_offset;
-	__u16 icid;
+enum uverbs_actions_cq_ops {
+	UVERBS_CQ_CREATE,
+	UVERBS_CQ_DESTROY,
 };
 
-struct qedr_create_qp_ureq {
-	__u32 qp_handle_hi;
-	__u32 qp_handle_lo;
+#endif
 
-	/* SQ */
-	/* user space virtual address of SQ buffer */
-	__u64 sq_addr;
-
-	/* length of SQ buffer */
-	__u64 sq_len;
-
-	/* RQ */
-	/* user space virtual address of RQ buffer */
-	__u64 rq_addr;
-
-	/* length of RQ buffer */
-	__u64 rq_len;
-};
-
-struct qedr_create_qp_uresp {
-	__u32 qp_id;
-	__u32 atomic_supported;
-
-	/* SQ */
-	__u32 sq_db_offset;
-	__u16 sq_icid;
-
-	/* RQ */
-	__u32 rq_db_offset;
-	__u16 rq_icid;
-
-	__u32 rq_db2_offset;
-};
-
-#endif /* __QEDR_USER_H__ */

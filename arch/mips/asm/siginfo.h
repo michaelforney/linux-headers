@@ -123,8 +123,4 @@ typedef struct siginfo {
 #define SI_TIMER	-3	/* sent by timer expiration */
 #define SI_MESGQ	-4	/* sent by real time mesq state change */
 
-/*
- * SIGFPE si_codes
- */
-
 #endif /* _ASM_SIGINFO_H */

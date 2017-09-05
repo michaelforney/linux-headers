@@ -981,8 +981,8 @@ struct dvb_ofdm_parameters {
 };
 
 struct dvb_frontend_parameters {
-	__u32 frequency;     /* (absolute) frequency in Hz for DVB-C/DVB-T/ATSC */
-			     /* intermediate frequency in kHz for DVB-S */
+	__u32 frequency;  /* (absolute) frequency in Hz for DVB-C/DVB-T/ATSC */
+			  /* intermediate frequency in kHz for DVB-S */
 	fe_spectral_inversion_t inversion;
 	union {
 		struct dvb_qpsk_parameters qpsk;	/* DVB-S */

@@ -187,8 +187,7 @@ struct dmx_sct_filter_params {
  * @pes_type:	Type of the pes filter, as specified by &enum dmx_pes_type.
  * @flags:	Demux PES flags.
  */
-struct dmx_pes_filter_params
-{
+struct dmx_pes_filter_params {
 	__u16           pid;
 	enum dmx_input  input;
 	enum dmx_output output;

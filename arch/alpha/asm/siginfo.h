@@ -6,4 +6,12 @@
 
 #include <asm-generic/siginfo.h>
 
+/*
+ * SIGFPE si_codes
+ */
+
+/*
+ * SIGTRAP si_codes
+ */
+
 #endif

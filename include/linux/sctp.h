@@ -1082,4 +1082,10 @@ struct sctp_add_streams {
 	uint16_t sas_outstrms;
 };
 
+/* SCTP Stream schedulers */
+enum sctp_sched_type {
+	SCTP_SS_FCFS,
+	SCTP_SS_MAX = SCTP_SS_FCFS
+};
+
 #endif /* _SCTP_H */

@@ -6,8 +6,6 @@
 #define POLLWRBAND	(__poll_t)256
 
 #include <asm-generic/poll.h>
-
 #undef POLLREMOVE
 
 #endif
-

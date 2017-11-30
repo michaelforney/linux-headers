@@ -9,7 +9,7 @@
 #ifndef __BFIN_POLL_H
 #define __BFIN_POLL_H
 
-#define POLLWRNORM	(__poll_t)4 /* POLLOUT */
+#define POLLWRNORM	POLLOUT
 #define POLLWRBAND	(__poll_t)256
 
 #include <asm-generic/poll.h>

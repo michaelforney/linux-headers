@@ -227,7 +227,6 @@ struct dmx_buffer {
 	__u32			bytesused;
 	__u32			offset;
 	__u32			length;
-	__u32			reserved[4];
 };
 
 /**
@@ -242,7 +241,6 @@ struct dmx_buffer {
 struct dmx_requestbuffers {
 	__u32			count;
 	__u32			size;
-	__u32			reserved[2];
 };
 
 /**
@@ -264,7 +262,6 @@ struct dmx_exportbuffer {
 	__u32		index;
 	__u32		flags;
 	__s32		fd;
-	__u32		reserved[5];
 };
 
 #define DMX_START                _IO('o', 41)

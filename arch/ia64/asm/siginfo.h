@@ -28,34 +28,7 @@
 #define __ISR_VALID	(1 << __ISR_VALID_BIT)
 
 /*
- * SIGILL si_codes
- */
-#define ILL_BADIADDR	9	/* unimplemented instruction address */
-#define __ILL_BREAK	10	/* illegal break */
-#define __ILL_BNDMOD	11	/* bundle-update (modification) in progress */
-#undef NSIGILL
-#define NSIGILL		11
-
-/*
  * SIGFPE si_codes
  */
-#define __FPE_DECOVF	9	/* decimal overflow */
-#define __FPE_DECDIV	10	/* decimal division by zero */
-#define __FPE_DECERR	11	/* packed decimal error */
-#define __FPE_INVASC	12	/* invalid ASCII digit */
-#define __FPE_INVDEC	13	/* invalid decimal digit */
-#undef NSIGFPE
-#define NSIGFPE		13
-
-/*
- * SIGSEGV si_codes
- */
-#define __SEGV_PSTKOVF	4	/* paragraph stack overflow */
-#undef NSIGSEGV
-#define NSIGSEGV	4
-
-#undef NSIGTRAP
-#define NSIGTRAP	4
-
 
 #endif /* _ASM_IA64_SIGINFO_H */

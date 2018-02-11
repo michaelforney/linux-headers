@@ -3,11 +3,9 @@
 #define _ASM_POLL_H
 
 #define POLLWRNORM	POLLOUT
-#define POLLWRBAND	256
+#define POLLWRBAND	(__poll_t)256
 
 #include <asm-generic/poll.h>
-
 #undef POLLREMOVE
 
 #endif
-

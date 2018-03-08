@@ -25,12 +25,4 @@
  * SIGFPE si_codes
  */
 
-/*
- * SIGBUS si_codes
- */
-
-/*
- * SIGTRAP si_codes
- */
-
 #endif

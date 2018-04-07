@@ -1,6 +1,5 @@
-/* SPDX-License-Identifier: ((GPL-2.0 WITH Linux-syscall-note) OR BSD-2-Clause) */
 /*
- * Copyright (c) 2009-2010 Chelsio, Inc. All rights reserved.
+ * Copyright (c) 2018, Mellanox Technologies inc.  All rights reserved.
  *
  * This software is available to you under a choice of one of two
  * licenses.  You may choose to be licensed under the terms of the GNU
@@ -30,58 +29,20 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#ifndef CXGB4_ABI_USER_H
-#define CXGB4_ABI_USER_H
 
-#include <linux/types.h>
+#ifndef MLX5_USER_IOCTL_CMDS_H
+#define MLX5_USER_IOCTL_CMDS_H
 
-#define C4IW_UVERBS_ABI_VERSION	3
+#include <rdma/ib_user_ioctl_cmds.h>
 
-/*
- * Make sure that all structs defined in this file remain laid out so
- * that they pack the same way on 32-bit and 64-bit architectures (to
- * avoid incompatibility between 32-bit userspace and 64-bit kernels).
- * In particular do not use pointer types -- pass pointers in __aligned_u64
- * instead.
- */
-struct c4iw_create_cq_resp {
-	__aligned_u64 key;
-	__aligned_u64 gts_key;
-	__aligned_u64 memsize;
-	__u32 cqid;
-	__u32 size;
-	__u32 qid_mask;
-	__u32 reserved; /* explicit padding (optional for i386) */
+enum mlx5_ib_create_flow_action_attrs {
+	/* This attribute belong to the driver namespace */
+	MLX5_IB_ATTR_CREATE_FLOW_ACTION_FLAGS = (1U << UVERBS_ID_NS_SHIFT),
 };
 
-enum {
-	C4IW_QPF_ONCHIP = (1 << 0)
+enum mlx5_ib_alloc_dm_attrs {
+	MLX5_IB_ATTR_ALLOC_DM_RESP_START_OFFSET = (1U << UVERBS_ID_NS_SHIFT),
+	MLX5_IB_ATTR_ALLOC_DM_RESP_PAGE_INDEX,
 };
 
-struct c4iw_create_qp_resp {
-	__aligned_u64 ma_sync_key;
-	__aligned_u64 sq_key;
-	__aligned_u64 rq_key;
-	__aligned_u64 sq_db_gts_key;
-	__aligned_u64 rq_db_gts_key;
-	__aligned_u64 sq_memsize;
-	__aligned_u64 rq_memsize;
-	__u32 sqid;
-	__u32 rqid;
-	__u32 sq_size;
-	__u32 rq_size;
-	__u32 qid_mask;
-	__u32 flags;
-};
-
-struct c4iw_alloc_ucontext_resp {
-	__aligned_u64 status_page_key;
-	__u32 status_page_size;
-	__u32 reserved; /* explicit padding (optional for i386) */
-};
-
-struct c4iw_alloc_pd_resp {
-	__u32 pdid;
-};
-
-#endif /* CXGB4_ABI_USER_H */
+#endif

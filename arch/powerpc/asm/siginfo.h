@@ -15,9 +15,4 @@
 
 #include <asm-generic/siginfo.h>
 
-/*
- * SIGTRAP si_codes
- */
-
-
 #endif	/* _ASM_POWERPC_SIGINFO_H */

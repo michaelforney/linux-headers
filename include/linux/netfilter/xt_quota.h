@@ -15,9 +15,7 @@ struct xt_quota_info {
 	__u32 flags;
 	__u32 pad;
 	__aligned_u64 quota;
-
-	/* Used internally by the kernel */
-	struct xt_quota_priv	*master;
+	__aligned_u64 remain;
 };
 
 #endif /* _XT_QUOTA_H */

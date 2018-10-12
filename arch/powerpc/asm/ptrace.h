@@ -29,7 +29,8 @@
 
 #ifndef __ASSEMBLY__
 
-struct pt_regs {
+struct pt_regs
+{
 	unsigned long gpr[32];
 	unsigned long nip;
 	unsigned long msr;

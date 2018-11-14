@@ -429,7 +429,6 @@
 #define __NR_statx		360
 #define __NR_io_pgetevents	361
 
-#define NR_syscalls		362
 
 /* Bitmask values returned from kern_features system call.  */
 #define KERN_FEATURE_MIXED_MODE_STACK	0x00000001

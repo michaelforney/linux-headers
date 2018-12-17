@@ -10,7 +10,6 @@
 #ifndef _ASM_POWERPC_UNISTD_H_
 #define _ASM_POWERPC_UNISTD_H_
 
-
 #define __NR_restart_syscall	  0
 #define __NR_exit		  1
 #define __NR_fork		  2
@@ -400,5 +399,6 @@
 #define __NR_pkey_mprotect	386
 #define __NR_rseq		387
 #define __NR_io_pgetevents	388
+
 
 #endif /* _ASM_POWERPC_UNISTD_H_ */

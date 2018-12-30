@@ -2,6 +2,11 @@
 #ifndef _ALPHA_UNISTD_H
 #define _ALPHA_UNISTD_H
 
+/* These are traditionally the names linux-alpha uses for
+ * the two otherwise generic system calls */
+#define __NR_umount	__NR_umount2
+#define __NR_osf_shmat	__NR_shmat
+
 #include <asm/unistd_32.h>
 
 #endif /* _ALPHA_UNISTD_H */

@@ -9,8 +9,6 @@
 #define _ASM_IA64_SIGINFO_H
 
 
-#define __ARCH_SI_PREAMBLE_SIZE	(4 * sizeof(int))
-
 #include <asm-generic/siginfo.h>
 
 #define si_imm		_sifields._sigfault._imm	/* as per UNIX SysV ABI spec */
@@ -26,9 +24,5 @@
  */
 #define __ISR_VALID_BIT	0
 #define __ISR_VALID	(1 << __ISR_VALID_BIT)
-
-/*
- * SIGFPE si_codes
- */
 
 #endif /* _ASM_IA64_SIGINFO_H */

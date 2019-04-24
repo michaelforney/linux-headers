@@ -392,6 +392,9 @@ enum v4l2_mpeg_video_header_mode {
 #define V4L2_CID_MPEG_VIDEO_MULTI_SLICE_MODE		(V4L2_CID_MPEG_BASE+221)
 enum v4l2_mpeg_video_multi_slice_mode {
 	V4L2_MPEG_VIDEO_MULTI_SLICE_MODE_SINGLE		= 0,
+	V4L2_MPEG_VIDEO_MULTI_SLICE_MODE_MAX_MB		= 1,
+	V4L2_MPEG_VIDEO_MULTI_SLICE_MODE_MAX_BYTES	= 2,
+	/* Kept for backwards compatibility reasons. Stupid typo... */
 	V4L2_MPEG_VIDEO_MULTI_SICE_MODE_MAX_MB		= 1,
 	V4L2_MPEG_VIDEO_MULTI_SICE_MODE_MAX_BYTES	= 2,
 };

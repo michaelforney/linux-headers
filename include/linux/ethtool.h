@@ -1710,6 +1710,9 @@ static __inline__ int ethtool_validate_duplex(__u8 duplex)
 #define ETH_MODULE_SFF_8436		0x4
 #define ETH_MODULE_SFF_8436_LEN		256
 
+#define ETH_MODULE_SFF_8636_MAX_LEN     640
+#define ETH_MODULE_SFF_8436_MAX_LEN     640
+
 /* Reset flags */
 /* The reset() operation must clear the flags for the components which
  * were actually reset.  On successful return, the flags indicate the

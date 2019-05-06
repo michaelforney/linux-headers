@@ -10,8 +10,8 @@
 #ifndef _ASM_SOCKET_H
 #define _ASM_SOCKET_H
 
+#include <linux/posix_types.h>
 #include <asm/sockios.h>
-#include <asm/bitsperlong.h>
 
 /*
  * For setsockopt(2)

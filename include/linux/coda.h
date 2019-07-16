@@ -86,10 +86,6 @@ typedef unsigned long long u_quad_t;
 
 #define __inline__
 
-struct timespec {
-        long       ts_sec;
-        long       ts_nsec;
-};
 #else  /* DJGPP but not KERNEL */
 #include <sys/time.h>
 typedef unsigned long long u_quad_t;
@@ -106,13 +102,6 @@ typedef unsigned long long u_quad_t;
 #endif
 #else
 #define cdev_t dev_t
-#endif
-
-#ifdef __CYGWIN32__
-struct timespec {
-        time_t  tv_sec;         /* seconds */
-        long    tv_nsec;        /* nanoseconds */
-};
 #endif
 
 #ifndef __BIT_TYPES_DEFINED__
@@ -209,19 +198,10 @@ struct CodaFid {
  */
 enum coda_vtype	{ C_VNON, C_VREG, C_VDIR, C_VBLK, C_VCHR, C_VLNK, C_VSOCK, C_VFIFO, C_VBAD };
 
-#ifdef __linux__
-/*
- * This matches the traditional Linux 'timespec' structure binary layout,
- * before using 64-bit time_t everywhere. Overflows in y2038 on 32-bit
- * architectures.
- */
-struct vtimespec {
-	long		tv_sec;		/* seconds */
+struct coda_timespec {
+	int64_t		tv_sec;		/* seconds */
 	long		tv_nsec;	/* nanoseconds */
 };
-#else
-#define vtimespec timespec
-#endif
 
 struct coda_vattr {
 	long     	va_type;	/* vnode type (for create) */
@@ -232,9 +212,9 @@ struct coda_vattr {
 	long		va_fileid;	/* file id */
 	u_quad_t	va_size;	/* file size in bytes */
 	long		va_blocksize;	/* blocksize preferred for i/o */
-	struct vtimespec va_atime;	/* time of last access */
-	struct vtimespec va_mtime;	/* time of last modification */
-	struct vtimespec va_ctime;	/* time file changed */
+	struct coda_timespec va_atime;	/* time of last access */
+	struct coda_timespec va_mtime;	/* time of last modification */
+	struct coda_timespec va_ctime;	/* time file changed */
 	u_long		va_gen;		/* generation number of file */
 	u_long		va_flags;	/* flags defined for file */
 	cdev_t	        va_rdev;	/* device special file represents */
@@ -299,7 +279,8 @@ struct coda_statfs {
 
 #define CIOC_KERNEL_VERSION _IOWR('c', 10, size_t)
 
-#define CODA_KERNEL_VERSION 3 /* 128-bit file identifiers */
+//      CODA_KERNEL_VERSION 3 /* 128-bit file identifiers */
+#define CODA_KERNEL_VERSION 4 /* 64-bit timespec */
 
 /*
  *        Venus <-> Coda  RPC arguments
